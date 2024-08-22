@@ -1,3 +1,4 @@
+// src/types/index.ts
 export interface User {
   id: string;
   firstName: string;
@@ -7,7 +8,7 @@ export interface User {
 }
 
 export interface Subject {
-  teacherName: ReactNode;
+  teacherName: string;
   id: string;
   name: string;
   teacherId?: string;
@@ -39,4 +40,45 @@ export interface RegisterData {
 export interface LoginData {
   email: string;
   password: string;
+}
+
+export interface CreateProgress {
+  studentId: string;
+  topicId: string;
+  apiKey: string;
+}
+
+export interface UpdateProgress {
+  studentId: string;
+  topicId: string;
+  apiKey: string;
+  progress: number;
+}
+
+export interface CreateSubject {
+  name: string;
+  teacherId?: string;
+}
+
+export interface AssignTeacher {
+  id: string;
+  teacherId: string;
+}
+
+export interface CreateTopic {
+  title: string;
+  description: string;
+  subjectId: string;
+  videoUrl?: string;
+}
+
+export interface UploadVideo {
+  id: string;
+  videoUrl?: string;
+}
+
+export interface UpdateTopic {
+  id: string;
+  title?: string;
+  description?: string;
 }

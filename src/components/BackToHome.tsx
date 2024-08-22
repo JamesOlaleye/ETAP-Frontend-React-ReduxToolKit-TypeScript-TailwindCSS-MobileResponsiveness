@@ -10,7 +10,7 @@ export default function BackToHome() {
 
   return (
     <div className='text-center py-4'>
-      <Link to='/' className='text-blue-600 hover:underline'>
+      <Link to='/home' className='text-blue-600 hover:underline'>
         &larr; Back to Home
       </Link>
     </div>

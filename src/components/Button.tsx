@@ -2,21 +2,21 @@
 import React from 'react';
 
 interface ButtonProps {
-  onClick?: () => void;
-  children: React.ReactNode;
+  onClick?: () => void; // Function to handle click events
+  children: React.ReactNode; // Content to display inside the button
   variant?: 'primary' | 'secondary' | 'danger'; // Button variants
   size?: 'small' | 'medium' | 'large'; // Button sizes
   disabled?: boolean; // Disabled state
-  className?: string; // Add className prop for custom styles
+  className?: string; // Custom styles
 }
 
 const Button: React.FC<ButtonProps> = ({
   onClick,
   children,
-  variant = 'primary',
-  size = 'medium',
-  disabled = false,
-  className = '', // Default to an empty string
+  variant = 'primary', // Default variant
+  size = 'medium', // Default size
+  disabled = false, // Default disabled state
+  className = '', // Default to an empty string for additional styles
 }) => {
   const baseStyles =
     'transition duration-300 ease-in-out rounded focus:outline-none focus:ring-2';
@@ -39,9 +39,9 @@ const Button: React.FC<ButtonProps> = ({
       className={`${baseStyles} ${sizeStyles[size]} ${
         variantStyles[variant]
       } ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
-      disabled={disabled}
+      disabled={disabled} // Set disabled attribute
     >
-      {children}
+      {children} // Render button content
     </button>
   );
 };

@@ -1,25 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Button from '../components/Button';
-import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
-  const navigate = useNavigate(); // Hook for navigation
-
-  useEffect(() => {
-    // Logic to check if user is logged in
-    const token = localStorage.getItem('authToken'); // Example check
-    setIsLoggedIn(!!token);
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem('authToken'); // Remove the token from local storage
-    setIsLoggedIn(false); // Update the login status
-    navigate('/'); // Redirect to home
-  };
-
   return (
     <div
       className='min-h-screen flex flex-col bg-cover bg-center'
@@ -79,24 +62,7 @@ export default function Home() {
             </Link>
           </section>
 
-          <div className='flex justify-center mt-8'>
-            {isLoggedIn ? (
-              <Button
-                variant='primary'
-                size='large'
-                className='mx-auto bg-red-600 hover:bg-red-700 text-white transition duration-200'
-                onClick={handleLogout}
-              >
-                Logout
-              </Button>
-            ) : (
-              <Link to='/register'>
-                <Button variant='primary' size='large' className='mx-auto'>
-                  Register
-                </Button>
-              </Link>
-            )}
-          </div>
+          <div className='flex justify-center mt-8'></div>
         </main>
 
         <Footer />
@@ -104,4 +70,3 @@ export default function Home() {
     </div>
   );
 }
-  
